@@ -1,0 +1,144 @@
+[gd_scene load_steps=16 format=3 uid="uid://ds56emfiu14bp"]
+
+[ext_resource type="Texture2D" uid="uid://vyeuxdt7imm6" path="res://visual/hdr/env.hdr" id="1_3b5bi"]
+[ext_resource type="Script" uid="uid://hfsflch5d1ir" path="res://scripts/authentication.gd" id="2_i3eeq"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i3eeq"]
+panorama = ExtResource("1_3b5bi")
+
+[sub_resource type="Sky" id="Sky_o5fwk"]
+sky_material = SubResource("PanoramaSkyMaterial_i3eeq")
+
+[sub_resource type="Environment" id="Environment_2fowy"]
+background_mode = 2
+sky = SubResource("Sky_o5fwk")
+
+[sub_resource type="Theme" id="Theme_3b5bi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3eeq"]
+
+[sub_resource type="Theme" id="Theme_nytem"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrr58"]
+
+[sub_resource type="Theme" id="Theme_o5fwk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fowy"]
+
+[sub_resource type="Theme" id="Theme_ugmn5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0amy0"]
+
+[sub_resource type="Theme" id="Theme_rleww"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5tmm"]
+
+[node name="Authentication" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2fowy")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.09958)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = -0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1536.0
+color = Color(0, 0, 0, 0.784314)
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_top = 0.874
+anchor_right = 1.0
+anchor_bottom = 0.948
+offset_top = 0.0799561
+offset_bottom = 0.159912
+script = ExtResource("2_i3eeq")
+metadata/_edit_lock_ = true
+
+[node name="email" type="LineEdit" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.2
+anchor_right = 0.333
+anchor_bottom = 0.8
+offset_left = -0.640015
+offset_right = 0.640015
+theme = SubResource("Theme_3b5bi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i3eeq")
+placeholder_text = "Email"
+metadata/_edit_lock_ = true
+
+[node name="create" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.3
+anchor_right = 0.417
+anchor_bottom = 0.7
+offset_left = -6.10352e-05
+offset_right = -0.640015
+theme = SubResource("Theme_nytem")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xrr58")
+text = "Create ?"
+metadata/_edit_lock_ = true
+
+[node name="password" type="LineEdit" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 0.2
+anchor_right = 0.617
+anchor_bottom = 0.8
+offset_left = -6.10352e-05
+offset_right = -0.640137
+theme = SubResource("Theme_o5fwk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2fowy")
+placeholder_text = "Password"
+secret = true
+secret_character = "*"
+metadata/_edit_lock_ = true
+
+[node name="recovery" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.3
+anchor_right = 0.7
+anchor_bottom = 0.675
+offset_left = 0.640015
+offset_top = -1.14441e-05
+offset_right = -0.00012207
+offset_bottom = -1.14441e-05
+theme = SubResource("Theme_ugmn5")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0amy0")
+text = "Forgot ?"
+metadata/_edit_lock_ = true
+
+[node name="send" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.2
+anchor_right = 0.833
+anchor_bottom = 0.8
+offset_left = -0.00012207
+offset_right = 0.640015
+theme = SubResource("Theme_rleww")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o5tmm")
+text = "Send"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="CanvasLayer/Control/create" to="CanvasLayer/Control" method="_on_pressed" binds= [0]]
+[connection signal="pressed" from="CanvasLayer/Control/recovery" to="CanvasLayer/Control" method="_on_pressed" binds= [1]]
+[connection signal="pressed" from="CanvasLayer/Control/send" to="CanvasLayer/Control" method="_on_pressed" binds= [2]]
