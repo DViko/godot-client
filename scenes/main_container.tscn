@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cxnj1tovmpae1"]
 
 [ext_resource type="Texture2D" uid="uid://vyeuxdt7imm6" path="res://visual/hdr/env.hdr" id="1_0bs6e"]
-[ext_resource type="Texture2D" uid="uid://xxw0qy6qwo72" path="res://visual/images/trr.png" id="2_ksq0p"]
+[ext_resource type="Script" uid="uid://ejyjyyjtoqcj" path="res://scripts/header.gd" id="2_ksq0p"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ksq0p"]
 panorama = ExtResource("1_0bs6e")
@@ -25,112 +25,167 @@ environment = SubResource("Environment_e4hg6")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.38368)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="header" type="CanvasLayer" parent="."]
+script = ExtResource("2_ksq0p")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="background" type="ColorRect" parent="header"]
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.059
-offset_bottom = 0.279995
+anchor_bottom = 0.044
+offset_bottom = 0.479996
 color = Color(0, 0, 0, 0.784314)
 metadata/_edit_lock_ = true
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="header"]
 layout_mode = 3
 anchor_right = 1.0
-anchor_bottom = 0.059
-offset_bottom = 0.279995
+anchor_bottom = 0.044
+offset_bottom = 0.479996
 metadata/_edit_lock_ = true
 
-[node name="overview" type="Button" parent="CanvasLayer/Control"]
+[node name="overview" type="Button" parent="header/Control" groups=["header_links"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.008
-anchor_top = 0.125
-anchor_right = 0.087
-anchor_bottom = 0.875
-offset_left = 0.639999
-offset_right = 0.959991
+anchor_left = 0.004
+anchor_top = 0.167
+anchor_right = 0.071
+anchor_bottom = 0.833
+offset_left = 0.32
+offset_top = -0.0160007
+offset_right = -0.320007
+offset_bottom = 0.0159988
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_0bs6e")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ksq0p")
 text = "Обзор"
 metadata/_edit_lock_ = true
 
-[node name="universe" type="Button" parent="CanvasLayer/Control"]
+[node name="universe" type="Button" parent="header/Control" groups=["header_links"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.104
-anchor_top = 0.125
-anchor_right = 0.183
-anchor_bottom = 0.875
-offset_left = 0.319992
-offset_right = 0.639984
+anchor_left = 0.087
+anchor_top = 0.167
+anchor_right = 0.154
+anchor_bottom = 0.833
+offset_left = 0.959991
+offset_top = -0.0160007
+offset_right = 0.319977
+offset_bottom = 0.0159988
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_0bs6e")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ksq0p")
 text = "Вселенная"
 metadata/_edit_lock_ = true
 
-[node name="structure" type="Button" parent="CanvasLayer/Control"]
+[node name="structure" type="Button" parent="header/Control" groups=["header_links"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.125
-anchor_right = 0.279
-anchor_bottom = 0.875
-offset_right = 0.319946
+anchor_left = 0.171
+anchor_top = 0.167
+anchor_right = 0.237
+anchor_bottom = 0.833
+offset_left = -0.320007
+offset_top = -0.0160007
+offset_right = 0.959961
+offset_bottom = 0.0159988
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_0bs6e")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ksq0p")
 text = "Структуры"
 metadata/_edit_lock_ = true
 
-[node name="shipyard" type="Button" parent="CanvasLayer/Control"]
+[node name="shipyard" type="Button" parent="header/Control" groups=["header_links"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.296
-anchor_top = 0.125
-anchor_right = 0.375
-anchor_bottom = 0.875
-offset_left = -0.320007
-offset_right = -6.10352e-05
+anchor_left = 0.254
+anchor_top = 0.167
+anchor_right = 0.321
+anchor_bottom = 0.833
+offset_left = 0.319977
+offset_top = -0.0160007
+offset_right = -0.320007
+offset_bottom = 0.0159988
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_0bs6e")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ksq0p")
 text = "Верфь"
 metadata/_edit_lock_ = true
 
-[node name="technology" type="Button" parent="CanvasLayer/Control"]
+[node name="technology" type="Button" parent="header/Control" groups=["header_links"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.392
-anchor_top = 0.125
-anchor_right = 0.471
-anchor_bottom = 0.875
-offset_left = -0.640015
-offset_right = -0.320007
+anchor_left = 0.337
+anchor_top = 0.167
+anchor_right = 0.404
+anchor_bottom = 0.833
+offset_left = 0.959961
+offset_top = -0.0160007
+offset_right = 0.319946
+offset_bottom = 0.0159988
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_0bs6e")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ksq0p")
 text = "Технологии"
 metadata/_edit_lock_ = true
 
-[node name="alliance" type="TextureButton" parent="CanvasLayer/Control"]
-layout_mode = 2
-anchor_left = 0.871
-anchor_top = 0.125
-anchor_right = 0.896
-anchor_bottom = 0.875
+[node name="resources" type="Button" parent="header/Control" groups=["header_links"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.421
+anchor_top = 0.167
+anchor_right = 0.487
+anchor_bottom = 0.833
 offset_left = -0.320068
-offset_right = -0.320068
+offset_top = -0.0160007
+offset_right = 0.959961
+offset_bottom = 0.0159988
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_ksq0p")
-ignore_texture_size = true
-stretch_mode = 0
+theme = SubResource("Theme_0bs6e")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ksq0p")
+text = "Ресурсы"
 metadata/_edit_lock_ = true
+
+[node name="trade" type="Button" parent="header/Control" groups=["header_links"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.167
+anchor_right = 0.571
+anchor_bottom = 0.833
+offset_left = 0.320007
+offset_top = -0.0160007
+offset_right = -0.320068
+offset_bottom = 0.0159988
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_0bs6e")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ksq0p")
+text = "Торговля"
+metadata/_edit_lock_ = true
+
+[node name="user_name" type="Label" parent="header/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.933
+anchor_top = 0.167
+anchor_right = 0.996
+anchor_bottom = 0.833
+offset_left = 0.639893
+offset_top = -0.0159998
+offset_right = -0.320068
+offset_bottom = 0.0159988
+theme_override_font_sizes/font_size = 15
+text = "Painkiller"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="header/Control/overview" to="header" method="_on_link_pressed" binds= [0]]
+[connection signal="pressed" from="header/Control/universe" to="header" method="_on_link_pressed" binds= [1]]
+[connection signal="pressed" from="header/Control/structure" to="header" method="_on_link_pressed" binds= [2]]

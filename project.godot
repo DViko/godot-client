@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="TheGame"
+run/main_scene="uid://ds56emfiu14bp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 HttpRequest="*res://autoload/http_request.gd"
+UserSync="*res://autoload/user_sync.gd"
 
 [display]
 
@@ -24,3 +26,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/size/borderless=true
+
+[network]
+
+tls/certificate_bundle_override="res://sertificate/server.crt"
