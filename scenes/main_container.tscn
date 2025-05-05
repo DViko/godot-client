@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxnj1tovmpae1"]
+[gd_scene load_steps=9 format=3 uid="uid://cxnj1tovmpae1"]
 
 [ext_resource type="Texture2D" uid="uid://vyeuxdt7imm6" path="res://visual/hdr/env.hdr" id="1_0bs6e"]
+[ext_resource type="Script" uid="uid://cin80tpqsb63k" path="res://scripts/main_container.gd" id="1_mrdy1"]
 [ext_resource type="Script" uid="uid://ejyjyyjtoqcj" path="res://scripts/header.gd" id="2_ksq0p"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ksq0p"]
@@ -18,6 +19,7 @@ sky = SubResource("Sky_mrdy1")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksq0p"]
 
 [node name="MainContainer" type="Node3D"]
+script = ExtResource("1_mrdy1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e4hg6")

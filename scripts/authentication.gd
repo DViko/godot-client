@@ -26,7 +26,9 @@ func redirect_to_create() -> void:
 	OS.shell_open("https://localhost:8081/signup")
 	
 func redirect_to_recovery() -> void:
-	pass
+	get_parent().remove_child(self)
+	queue_free()
+	SceneLoader.initialize()
 	
 func http_request() -> void:
 	buttons_toggler(true)

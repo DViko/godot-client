@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 HttpRequest="*res://autoload/http_request.gd"
 UserSync="*res://autoload/user_sync.gd"
+SceneLoader="*res://autoload/scene_loader.gd"
 
 [display]
 
