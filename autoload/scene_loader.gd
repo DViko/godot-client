@@ -4,6 +4,10 @@ var scenes: Array[String] = [
 	"res://scenes/main_container.tscn"
 ]
 
+var loaders: Array[String] = [
+	"res://scenes/loder.tscn"
+]
+
 enum {
 	INVALID = 0,
 	LOADING = 1,
@@ -12,6 +16,13 @@ enum {
 }
 
 func initialize() -> void:
+	await load_async(loaders[0])
+	HttpManager.connect("http_request_completed", prepare)
+	HttpManager.emit_signal("http_request", 1, [""])
+	
+	
+func prepare(flag: bool) -> void:
+	print("prepare")
 	await load_async(scenes[0])
 
 func load_async(path: String):
@@ -29,10 +40,13 @@ func load_async(path: String):
 				push_error("Invalid file path")
 			LOADED:
 				var scene = ResourceLoader.load_threaded_get(path).instantiate()
-				scene.initialize_data({ "player_name": "TestUser" })
-				get_tree().current_scene.add_child(scene)
+				var current = get_tree().current_scene
+				
+				if current:
+					current.queue_free()
+					
+				get_tree().root.add_child(scene)
+				get_tree().current_scene = scene
 			FAILED:
 				push_error("Failed to load scene")
-				
-#Итак ResourceLoader.load_threaded_request(path) выдает ок но 
-#ResourceLoader.load_threaded_get_status(path) после LOADING выдает FAILED. Гдн может быть засада ?
+			

@@ -5,4 +5,5 @@ extends Node
 ]
 
 func initialize_data(data) -> void:
-	labels[0].text = data.player_name
+	pass
+	

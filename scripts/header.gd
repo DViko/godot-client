@@ -7,6 +7,7 @@ var temp_buttom: Node = null
 func _ready() -> void:
 	link_buttons[0].disabled = true
 	temp_buttom = link_buttons[0]
+	$Control/user_name.text = UserSync.get_user_name()
 	
 func buttons_toggler(node: Node) -> void:
 	node.disabled = true

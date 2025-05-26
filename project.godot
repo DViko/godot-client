@@ -17,9 +17,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-HttpRequest="*res://autoload/http_request.gd"
+HttpManager="*res://autoload/http_manager.gd"
 UserSync="*res://autoload/user_sync.gd"
 SceneLoader="*res://autoload/scene_loader.gd"
+AuthService="*res://mock_services/auth_service.gd"
+PlanetsService="*res://mock_services/planets_service.gd"
 
 [display]
 
